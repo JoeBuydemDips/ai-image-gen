@@ -2,7 +2,7 @@
 
 This project is an AI-powered image generator built with Streamlit and the Replicate API. It allows users to generate amazing images using AI by providing prompts and adjusting various parameters.
 
-![AI Image Generator Screenshot](image_01.png)
+![AI Image Generator Screenshot](image_01-fs8.png)
 
 ## 🚀 Prerequisites
 
