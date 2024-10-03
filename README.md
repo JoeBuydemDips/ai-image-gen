@@ -11,7 +11,12 @@ This project is an AI-powered image generator built with Streamlit and the Repli
 
 ## 🛠️ Setup
 
-1. Clone this repository or download the source code.
+1. Clone this repository or download the source code:
+
+   ```
+   git clone https://github.com/JoeBuydemDips/ai-image-gen.git
+   cd ai-image-gen
+   ```
 
 2. Create a virtual environment:
 
@@ -79,6 +84,11 @@ This project is open-source and available under the MIT License.
 ## 🙏 Acknowledgements
 
 This project uses the Replicate API and the Flux 1.1 Pro model by Black Forest Labs.
+
+## 📁 Repository
+
+The source code for this project is available on GitHub:
+[https://github.com/JoeBuydemDips/ai-image-gen.git](https://github.com/JoeBuydemDips/ai-image-gen.git)
 
 ---
 
