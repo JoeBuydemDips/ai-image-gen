@@ -1,45 +1,59 @@
 # Installation Guide
 
-This guide will help you get AI Image Generator up and running on your system.
+Get AI Image Generator up and running in just a few steps.
 
 ## Prerequisites
 
-Before installing AI Image Generator, make sure you have:
-
 - Python 3.8 or higher
 - pip (Python package installer)
-- Git (optional, for development)
 
-## Installation Steps
+## Quick Installation
 
-1. Clone the repository (optional):
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/JoeBuydemDips/ai-image-gen.git
    cd ai-image-gen
    ```
 
-2. Create a virtual environment (recommended):
+2. Create and activate a virtual environment (recommended):
 
    ```bash
+   # On Windows
    python -m venv venv
-   source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+   venv\Scripts\activate
+
+   # On macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
    ```
 
-3. Install the package:
+3. Install the required packages:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Verifying the Installation
+## Getting Your API Key
 
-To verify that AI Image Generator is installed correctly, run:
+1. Go to [Replicate](https://replicate.com/account/api-tokens)
+2. Sign in or create an account
+3. Generate a new API token
+4. Copy the token - you'll need it when running the application
+
+## Running the Application
+
+Start the application with:
 
 ```bash
-python -c "import ai_image_gen; print(ai_image_gen.__version__)"
+streamlit run app.py
 ```
 
-You should see the version number printed to the console.
+The application will open in your default web browser at `http://localhost:8501`.
+
+## Next Steps
+
+- Check out the [Quick Start Guide](quickstart.md) to generate your first image
+- Read the [Basic Usage](user-guide/basic-usage.md) guide for detailed instructions
 
 ## Configuration
 
@@ -72,12 +86,6 @@ AI Image Generator uses environment variables and Streamlit's built-in configura
    textColor = "#262730"
    font = "sans serif"
    ```
-
-## Next Steps
-
-- Check out the [Quick Start Guide](quickstart.md) to begin using AI Image Generator
-- Read the [Basic Usage](user-guide/basic-usage.md) documentation
-- Explore the [API Reference](api-reference/overview.md)
 
 ## Troubleshooting
 

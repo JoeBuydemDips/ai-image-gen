@@ -46,13 +46,6 @@ nav:
       - Quick Start: getting-started/quickstart.md
   - User Guide:
       - Basic Usage: user-guide/basic-usage.md
-      - Advanced Features: user-guide/advanced-features.md
-  - API Reference:
-      - API Overview: api-reference/overview.md
-      - Endpoints: api-reference/endpoints.md
-  - Contributing:
-      - Contributing Guide: contributing/guide.md
-      - Code of Conduct: contributing/code-of-conduct.md
 
 extra:
   social:
