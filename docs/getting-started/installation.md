@@ -53,7 +53,7 @@ The application will open in your default web browser at `http://localhost:8501`
 ## Next Steps
 
 - Check out the [Quick Start Guide](quickstart.md) to generate your first image
-- Read the [Basic Usage](user-guide/basic-usage.md) guide for detailed instructions
+- Read the [Basic Usage](../user-guide/basic-usage.md) guide for detailed instructions
 
 ## Configuration
 
@@ -98,6 +98,5 @@ If you encounter any issues during installation:
 
 For additional help, please:
 
-- Check the [FAQ](../user-guide/faq.md)
-- Open an [issue](https://github.com/JoeBuydemDips/ai-image-gen/issues)
-- Join our community discussions
+- Check the [Basic Usage Guide](../user-guide/basic-usage.md) for troubleshooting tips
+- Open an [issue](https://github.com/JoeBuydemDips/ai-image-gen/issues) if you need help

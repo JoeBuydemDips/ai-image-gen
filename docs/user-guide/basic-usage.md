@@ -148,6 +148,12 @@ The application has a simple two-panel layout:
 - Generated images are not stored on our servers
 - Each generation requires an active internet connection
 
+## Next Steps
+
+- Try different prompts and settings to explore the tool's capabilities
+- Check the [Quick Start Guide](../getting-started/quickstart.md) for a refresher
+- Open an [issue](https://github.com/JoeBuydemDips/ai-image-gen/issues) if you need help
+
 ## Frequently Asked Questions
 
 ### General Questions
@@ -223,9 +229,3 @@ A: For faster generation:
 - Disable prompt upsampling
 - Use webp format
 - Ensure stable internet connection
-
-## Next Steps
-
-- Learn about [Advanced Features](advanced-features.md)
-- Explore the [API Reference](../api-reference/overview.md)
-- Read the [Contributing Guide](../contributing/guide.md)

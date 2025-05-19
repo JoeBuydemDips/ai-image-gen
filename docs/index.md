@@ -29,7 +29,7 @@ If you need help or have questions:
 
 ## License
 
-This project is licensed under the terms of the license included in the repository. See the [LICENSE](../LICENSE.txt) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/JoeBuydemDips/ai-image-gen/blob/main/LICENSE.txt) file for details.
 
 ## About This Project
 
