@@ -58,4 +58,5 @@ jobs:
 
       - name: Report deployment URL
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
+        run: |
+          echo "Deployment URL: $GITHUB_PAGES_URL"
