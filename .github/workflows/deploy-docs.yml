@@ -13,7 +13,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       pages: write
       id-token: write
     concurrency:
@@ -36,6 +36,9 @@ jobs:
           pip install -r requirements.txt
         continue-on-error: false
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
       - name: Check mkdocs configuration
         run: mkdocs --version && mkdocs build --strict
 
@@ -43,18 +46,16 @@ jobs:
         run: mkdocs build
         continue-on-error: false
 
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: gh-pages
-          commit_message: "docs: update documentation [skip ci]"
-          force_orphan: true # Clean up old files
+          path: ./site
 
-      - name: Check deployment
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-        run: |
-          echo "Documentation should be available at: https://${{ github.repository_owner }}.github.io/ai-image-gen/"
-          echo "Please wait a few minutes for the site to be published."
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+      - name: Report deployment URL
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
