@@ -2,15 +2,10 @@ import streamlit as st
 import replicate
 import os
 import requests
+from utils import get_image_download_link
 
 # Set up the page configuration (must be the first Streamlit command)
 st.set_page_config(page_title="AI Image Generator", layout="wide")
-
-# Function to download image
-def get_image_download_link(img_url, filename, text, mime_type="image/png"):
-    response = requests.get(img_url)
-    response.raise_for_status()
-    st.download_button(label=text, data=response.content, file_name=filename, mime=mime_type)
 
 # Initialize session state
 if 'generated_image_url' not in st.session_state:
