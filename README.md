@@ -1,10 +1,7 @@
 # 🎨 AI Image Generator
 
-[![Documentation](https://img.shields.io/badge/docs-github.io-blue.svg)](https://JoeBuydemDips.github.io/ai-image-gen/)
-
 This project is an AI-powered image generator built with Streamlit and the Replicate API. It allows users to generate amazing images using AI by providing prompts and adjusting various parameters.
 
-[📚 View Documentation](https://JoeBuydemDips.github.io/ai-image-gen/)
 
 ![AI Image Generator Screenshot](image_01-fs8.png)
 
