@@ -2,16 +2,23 @@ import streamlit as st
 import replicate
 import os
 import requests
-from io import BytesIO
+
+
+@st.cache_data(show_spinner=False)
+def fetch_image_bytes(img_url: str) -> bytes:
+    """Download an image and cache the result to avoid repeated requests."""
+    response = requests.get(img_url, timeout=10)
+    response.raise_for_status()
+    return response.content
 
 # Set up the page configuration (must be the first Streamlit command)
 st.set_page_config(page_title="AI Image Generator", layout="wide")
 
 # Function to download image
-def get_image_download_link(img_url, filename, text):
-    response = requests.get(img_url)
-    img = BytesIO(response.content)
-    st.download_button(label=text, data=img, file_name=filename, mime="image/png")
+def get_image_download_link(img_url, filename, text, mime_type="image/png"):
+    """Fetch the image bytes and display a download button."""
+    image_bytes = fetch_image_bytes(img_url)
+    st.download_button(label=text, data=image_bytes, file_name=filename, mime=mime_type)
 
 # Initialize session state
 if 'generated_image_url' not in st.session_state:
@@ -62,9 +69,15 @@ if generate_button:
 # Display the generated image if available
 if st.session_state.generated_image_url:
     st.image(st.session_state.generated_image_url, caption=f"Generated Image: {prompt}", use_column_width=True)
-    
+
     # Add download button
-    get_image_download_link(st.session_state.generated_image_url, f"generated_image.{output_format}", "Download Image")
+    mime_type = "image/jpeg" if output_format == "jpg" else f"image/{output_format}"
+    get_image_download_link(
+        st.session_state.generated_image_url,
+        f"generated_image.{output_format}",
+        "Download Image",
+        mime_type,
+    )
 
 # Add a footer
 st.markdown("---")
