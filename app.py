@@ -2,16 +2,15 @@ import streamlit as st
 import replicate
 import os
 import requests
-from io import BytesIO
 
 # Set up the page configuration (must be the first Streamlit command)
 st.set_page_config(page_title="AI Image Generator", layout="wide")
 
 # Function to download image
-def get_image_download_link(img_url, filename, text):
+def get_image_download_link(img_url, filename, text, mime_type="image/png"):
     response = requests.get(img_url)
-    img = BytesIO(response.content)
-    st.download_button(label=text, data=img, file_name=filename, mime="image/png")
+    response.raise_for_status()
+    st.download_button(label=text, data=response.content, file_name=filename, mime=mime_type)
 
 # Initialize session state
 if 'generated_image_url' not in st.session_state:
@@ -62,9 +61,15 @@ if generate_button:
 # Display the generated image if available
 if st.session_state.generated_image_url:
     st.image(st.session_state.generated_image_url, caption=f"Generated Image: {prompt}", use_column_width=True)
-    
+
     # Add download button
-    get_image_download_link(st.session_state.generated_image_url, f"generated_image.{output_format}", "Download Image")
+    mime_type = "image/jpeg" if output_format == "jpg" else f"image/{output_format}"
+    get_image_download_link(
+        st.session_state.generated_image_url,
+        f"generated_image.{output_format}",
+        "Download Image",
+        mime_type,
+    )
 
 # Add a footer
 st.markdown("---")
